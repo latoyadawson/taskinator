@@ -9,20 +9,20 @@ var taskFormHandler = function(event) {
     var taskNameInput = document.querySelector("input[name= 'task-name']").value;
     var taskTypeInput = document.querySelector("select[name= 'task-type']").value;
    
-    //package up data as an object 
-    var taskDataObj = {
-        name: taskNameInput,
-        type: taskTypeInput
-    };
-
-    //check if input values are empty strings
-    if (!taskNameInput || !taskTypeInput) {
+      //check if input values are empty strings
+      if (!taskNameInput || !taskTypeInput) {
         alert("You need to fill out the task from!");
         return false;
     }
 
     //reset task name form 
     formEl.reset();
+
+    //package up data as an object 
+    var taskDataObj = {
+        name: taskNameInput,
+        type: taskTypeInput
+    };
 
     //send it as an arguement to createTaskEl
     createTaskEl(taskDataObj);
@@ -40,7 +40,6 @@ var createTaskEl = function(taskDataObj) {
     taskInfoEl.className = "task-info";
     //add HTML content to div 
     taskInfoEl.innerHTML = "<h3 class = 'task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
-
     listItemEl.appendChild(taskInfoEl)
 
     //add entire list item to the list 
